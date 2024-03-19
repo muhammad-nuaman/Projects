@@ -1,7 +1,7 @@
 import inquirer from 'inquirer';
 import chalk from 'chalk';
 
-const answer = await inquirer.prompt([
+const answers = await inquirer.prompt([
     {
         message: 'Enter First Number: ',
         type: 'number',
@@ -21,27 +21,27 @@ const answer = await inquirer.prompt([
 ]);
 
 
-if (answer.operator === 'Addition') {
+if (answers.operator === 'Addition') {
     console.log(
         chalk.green('Sum: ') + 
-        chalk.bold(answer.first_number + answer.second_number)
+        chalk.bold(answers.first_number + answers.second_number)
     )   
 }
-else if (answer.operator === 'Subtraction') {
+else if (answers.operator === 'Subtraction') {
     console.log(
         chalk.red('Difference: ') + 
-        chalk.bold(answer.first_number - answer.second_number)
+        chalk.bold(answers.first_number - answers.second_number)
     )   
 }
-else if (answer.operator === 'Multiply') {
+else if (answers.operator === 'Multiply') {
     console.log(
         chalk.cyan('Product: ') + 
-        chalk.bold(answer.first_number * answer.second_number)
+        chalk.bold(answers.first_number * answers.second_number)
     )   
 }
-else if (answer.operator === 'Division') {
+else if (answers.operator === 'Division') {
     console.log(
         chalk.magenta('Quotient: ') + 
-        chalk.bold((answer.first_number / answer.second_number).toFixed(2))
+        chalk.bold((answers.first_number / answers.second_number).toFixed(2))
     )   
 }
