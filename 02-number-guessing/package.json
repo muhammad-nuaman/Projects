@@ -1,7 +1,7 @@
 {
   "name": "cgn-game",
   "version": "1.0.0",
-  "description": "",
+  "description": "Guess the computer generated number!",
   "main": "index.js",
   "type": "module",
   "bin": "index.js",
@@ -9,8 +9,8 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "author": "Muhammad Nuaman",
+  "license": "MIT",
   "dependencies": {
     "inquirer": "^9.2.16"
   },
