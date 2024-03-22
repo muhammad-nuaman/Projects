@@ -1,6 +1,6 @@
 {
   "name": "cgn-game",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Guess the computer generated number!",
   "main": "index.js",
   "type": "module",
