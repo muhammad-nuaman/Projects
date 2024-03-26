@@ -3,12 +3,12 @@ import inquirer from "inquirer";
 import chalk from 'chalk';
 
 
-async function game() {
+export default (async function game() {
     // CGN = Computer Generated Number
     const CGN = Math.floor(Math.random() * 10 + 1);
     
    
-    (async function guessing( ){
+    (async function guessing(){
         // User Guessing Number
         const userGuess = await inquirer.prompt([
             {
@@ -32,7 +32,5 @@ async function game() {
                 `Wrong Guessing: ${chalk.red( userGuess.number)}\nRight Number is: ${chalk.green(CGN)}`);
             }     
         }
-    })();
-}
-game();
-export default game;
+    })()
+})();

@@ -1,7 +1,7 @@
 #! /usr/bin/env node
 import inquirer from "inquirer";
 import chalk from 'chalk';
-async function game() {
+export default (async function game() {
     // CGN = Computer Generated Number
     const CGN = Math.floor(Math.random() * 10 + 1);
     (async function guessing() {
@@ -27,6 +27,4 @@ async function game() {
             }
         }
     })();
-}
-game();
-export default game;
+})();
