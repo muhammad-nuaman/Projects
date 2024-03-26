@@ -10,5 +10,11 @@
   },
   "keywords": [],
   "author": "Muhammad Nuaman",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "inquirer": "^9.2.16"
+  },
+  "devDependencies": {
+    "@types/inquirer": "^9.0.7"
+  }
 }
