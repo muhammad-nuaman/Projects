@@ -2,9 +2,9 @@
   "name": "cgn-game",
   "version": "1.0.2",
   "description": "Guess the computer generated number!",
-  "main": "index.js",
+  "main": "app.js",
   "type": "module",
-  "bin": "index.js",
+  "bin": "app.js",
   "publishConfig": {
     "access": "public"
   },
