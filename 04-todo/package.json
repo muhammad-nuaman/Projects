@@ -1,5 +1,5 @@
 {
-  "name": "todo-listing",
+  "name": "listing-todos",
   "version": "1.0.0",
   "description": "Listing Your Task",
   "main": "app.js",
