@@ -10,7 +10,7 @@ export default (async function game() {
             {
                 'name': 'number',
                 'type': 'number',
-                'message': `Guess the Number : [1-10]`
+                'message': `Guess the Number: (1-10) `
             }
         ]);
         if (userGuess.number < 1 ||
@@ -20,7 +20,7 @@ export default (async function game() {
         }
         else {
             if (userGuess.number === CGN) {
-                console.log(`${chalk.green('Congratulation')}! You've guessed it's right: ${chalk.green(userGuess.number)} `);
+                console.log(`${chalk.green('Congratulation')}! You've guessed it's right`);
             }
             else {
                 console.log(`Wrong Guessing: ${chalk.red(userGuess.number)}\nRight Number is: ${chalk.green(CGN)}`);
