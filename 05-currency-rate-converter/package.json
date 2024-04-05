@@ -1,0 +1,15 @@
+{
+  "name": "currency-rate-converter",
+  "version": "1.0.0",
+  "description": 
+  "The currency-rate-converter package is a versatile and easy-to-use tool for converting currency rates accurately and efficiently.",
+  "main": "app.js",
+  "type": "module",
+  "bin": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "Muhammad Nuaman",
+  "license": "MIT"
+}
