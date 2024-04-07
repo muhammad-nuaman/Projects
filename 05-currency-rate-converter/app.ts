@@ -77,7 +77,7 @@ const to = await inquirer.prompt(
             console.log(`Current Amount           ₹${chalk.bold.greenBright(currency.amount)}`);
         }
         else if (from.currency === 'AED') {
-            console.log(`Current Amount           مہرد${chalk.bold.greenBright(currency.amount)}`);
+            console.log(`Current Amount        مہرد${chalk.bold.greenBright(currency.amount)}`);
         }
         else if (from.currency === 'EUR') {
             console.log(`Current Amount           €${chalk.bold.greenBright(currency.amount)}`);
