@@ -3,7 +3,7 @@
 import inquirer from "inquirer";
 import chalk from "chalk";
 // Print Converter
-console.log('\nＣｕｒｒｅｎｃｙ Ｅｘｃｈａｎｇｅ\n');
+console.log('\nＥｘｃｈａｎｇｅ Ｃｕｒｒｅｎｃｙ \n');
 // Define Currency Rates
 const currencyRates = {
     USD: 1, // United States Dollar
