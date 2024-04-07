@@ -93,7 +93,7 @@ const to = await inquirer.prompt(
             console.log(`Exchange Amount          ₹${chalk.bold.cyanBright(Number(exchanged.toFixed(2)).toLocaleString('en-in'))}`);
         }
         else if (to.currency === 'AED') {
-            console.log(`Exchange Amount          مہرد${chalk.bold.cyanBright(Number(exchanged.toFixed(2)).toLocaleString('en-in'))}`);
+            console.log(`Exchange Amount       مہرد${chalk.bold.cyanBright(Number(exchanged.toFixed(2)).toLocaleString('en-in'))}`);
         }
         else if (to.currency === 'EUR') {
             console.log(`Exchange Amount          €${chalk.bold.cyanBright(Number(exchanged.toFixed(2)).toLocaleString('en-in'))}`);
