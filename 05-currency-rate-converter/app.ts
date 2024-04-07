@@ -1,62 +1,107 @@
-#! /usr/bin/env node 
+#! /usr/bin/env node
 
-// Import Package
+// Import Packages
 import inquirer from "inquirer";
-import chalk from 'chalk';
+import chalk from "chalk";
+
+// Print Converter
+console.log('\nＣｕｒｒｅｎｃｙ Ｅｘｃｈａｎｇｅ\n');
 
 // Define Currency Rates
-const currencyRates: any = {
-    USD: 1.0, // Base currency
-    INR: 83.29,
-    AED: 3.67,
-    EUR: 0.92,
-    PKR: 278.00
-}
+const currencyRates: { [key: string]: number } = {
+    USD: 1, // United States Dollar
+    INR: 74.35, // Indian Rupee
+    AED: 3.67, // United Arab Emirates Dirham
+    EUR: 0.89, // Euro
+    PKR: 283.91 // Pakistani Rupee
+};
 
-//  Prompting:  Exchange (From - To)
-let exchange = await inquirer.prompt([
+// Define Currencies
+const currencies: string[] = Object.keys(currencyRates);
+
+// Prompting: Exchange From
+const from = await inquirer.prompt(
     {
-        name: 'from',
-        type: "list",
+        name: 'currency',
+        type: 'list',
         message: 'Exchange From: ',
-        choices: ['USD', 'INR', 'AED', 'EUR', 'PKR']
-    },
+        choices: currencies
+    }
+);
+
+// Removing From Exchange Currency 
+currencies.splice(currencies.indexOf(from.currency), 1)
+
+// Prompting: Exchange To
+const to = await inquirer.prompt(
     {
-        name: 'to',
-        type: "list",
+        name: 'currency',
+        type: 'list',
         message: 'Exchange To:   ',
-        choices: ['USD', 'INR', 'AED', 'EUR', 'PKR']
-    },
-]);
+        choices: currencies
+    }
+);
 
-
-(async function currencyAmount() {
-    // Prompting: Currency Amount
-   let currency = await inquirer.prompt({
+// Re-Prompting Function
+(async function exchangeAmount() {
+    const currency = await inquirer.prompt({
         name: 'amount',
-        type: "number",
-        message: 'Enter Amount:  ',
-    })
-    // Currency Amount Checking
+        type: 'number',
+        message: 'Enter Amount   '
+    });
     if (
-        isNaN(currency.amount) ||
-        currency.amount.toString().includes('-') ||
-        currency.amount === 0
-    ) {currencyAmount()}
-    else {
-        // Currency Exchanged
-        let from  = currencyRates[exchange.from]
-        let to  = currencyRates[exchange.to]
-        let amount = currency.amount;
-        let exchanged = (amount / from) * to;
+        isNaN(currency.amount)  ||
+        currency.amount === 0   ||
+        currency.amount.toString().startsWith('-')
         
-        // Print
-        console.log(`${chalk.bold.yellow(exchange.from)}:  ${chalk.bold(from)}`);
-        console.log(`${chalk.bold.yellow(exchange.to)}:  ${chalk.bold(to)}`);
-        console.log(`${chalk.greenBright('Current Amount:')}   ${chalk.bold(amount)}`);
-        console.log(`${chalk.cyanBright('Exchange Amount:')}  ${chalk.bold(Number(exchanged.toFixed(2)).toLocaleString('en-in'))}`);
+    ) {exchangeAmount()}
+    else {
+        // Exchange Rates
+        const fromCurrencyRate = currencyRates[from.currency];
+        const toCurrencyRate = currencyRates[to.currency];
+        const amount = currency.amount
+        const exchanged = (amount / fromCurrencyRate) * toCurrencyRate;
+        
+        // Printing
+        console.log();
+        console.log(chalk.dim('Exchange Rates: Dollar Based'));
+        console.log('=================================================');
+        console.log(`Exchange From (${chalk.greenBright.bold(from.currency)})      ${chalk.bold(fromCurrencyRate)}`);
+        console.log(`Exchange To   (${chalk.cyanBright.bold(to.currency)})      ${chalk.bold(toCurrencyRate)}`) ;
+        console.log('=================================================');
+        // From
+        if (from.currency === 'USD') {
+            console.log(`Current Amount           $${chalk.bold.greenBright(currency.amount)}`);
+        }
+        else if (from.currency === 'INR') {
+            console.log(`Current Amount           ₹${chalk.bold.greenBright(currency.amount)}`);
+        }
+        else if (from.currency === 'AED') {
+            console.log(`Current Amount           مہرد${chalk.bold.greenBright(currency.amount)}`);
+        }
+        else if (from.currency === 'EUR') {
+            console.log(`Current Amount           €${chalk.bold.greenBright(currency.amount)}`);
+        }
+        else if (from.currency === 'PKR') {
+            console.log(`Current Amount           Rs${chalk.bold.greenBright(currency.amount)}`);
+        }
+        // To
+        if (to.currency === 'USD') {
+            console.log(`Exchange Amount          $${chalk.bold.cyanBright(Number(exchanged.toFixed(2)).toLocaleString('en-in'))}`);
+        }
+        else if (to.currency === 'INR') {
+            console.log(`Exchange Amount          ₹${chalk.bold.cyanBright(Number(exchanged.toFixed(2)).toLocaleString('en-in'))}`);
+        }
+        else if (to.currency === 'AED') {
+            console.log(`Exchange Amount          مہرد${chalk.bold.cyanBright(Number(exchanged.toFixed(2)).toLocaleString('en-in'))}`);
+        }
+        else if (to.currency === 'EUR') {
+            console.log(`Exchange Amount          €${chalk.bold.cyanBright(Number(exchanged.toFixed(2)).toLocaleString('en-in'))}`);
+        }
+        else if (to.currency === 'PKR') {
+            console.log(`Exchange Amount          Rs${chalk.bold.cyanBright(Number(exchanged.toFixed(2)).toLocaleString('en-in'))}`);
+        }
+        console.log('=================================================');
+        console.log();
     }    
 })()
-
-
-
