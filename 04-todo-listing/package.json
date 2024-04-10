@@ -1,7 +1,7 @@
 {
-  "name": "listing-todos",
-  "version": "1.0.0",
-  "description": "Listing Your Task",
+  "name": "todo-listing",
+  "version": "1.0.1",
+  "description": "List Your Task",
   "main": "app.js",
   "type": "module",
   "bin": "app.js",
