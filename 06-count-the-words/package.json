@@ -1,6 +1,6 @@
 {
-  "name": "count-the-words",
-  "version": "1.0.0",
+  "name": "word-length",
+  "version": "1.0.1",
   "description": "",
   "main": "app.js",
   "type": "module",
@@ -11,9 +11,11 @@
   "author": "Muhammad Nuaman",
   "license": "MIT",
   "dependencies": {
+    "chalk": "^5.3.0",
     "inquirer": "^9.2.19"
   },
   "devDependencies": {
+    "@types/chalk": "^2.2.0",
     "@types/inquirer": "^9.0.7"
   }
 }
